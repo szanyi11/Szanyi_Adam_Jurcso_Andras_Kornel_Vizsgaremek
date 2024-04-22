@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">               <!--Én adtam hozzá de nem muszály-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- URL: https://boxicons.com/usage-->
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/server.js"></script>
+    <script src="../js/index.js"></script>
+    <title>Liget Pizzeria</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+               <img src="../kepek/3.png" alt="liget logo">
+            </div>
+               <div class="nav-menu" id="navMenu">
+                   <ul>
+                       <li><a href="#rolunk" class="link active">Fő oldal</a></li>
+                       <li><a href="#nyitva" class="link">Nyitvatartás</a></li>
+                       <li><a href="#etlap" class="link">Étlap</a></li>
+                       <li><a href="#foglal" class="link">Foglalás</a></li>
+                       <li><a href="#rendel" class="link">Rendelés</a></li>
+                       <li><a href="#ertekeles" class="link">Értékelések rólunk</a></li>
+                       <li><a href="bejelentkezes.html" class="link">Belépés</a></li>                      
+                   </ul>
+               </div>
+                <div class="nav-button">
+                    <a href="bejelentkezes.html"><button class="btn white-btn" id="loginBtn" onclick="login()">Bejelentkezés</button></a>
+                    <a href="bejelent_regist.html"><button class="btn" id="registerBtn" onclick="register()">Regisztráció</button></a>
+                </div>
+                <div class="nav-menu-btn">
+                    <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+                </div>
+        </nav>
+   
+    <main class="main-container" >
+        <div window class="fejlec"><a name="eleje"></a><a name="rolunk"></a>                                        <!--fejlec-->
+            <div class="fejlec1">
+                    <div class="fej1">    <i class='bx bxs-phone'></i>            06(xx) xxx-xxx</div>
+                    <div class="fej2">    <i class='bx bxs-location-plus' ></i>   9700 Szombathely xxx út xx.</div>
+                    <div class="fej3">    <i class='bx bxs-envelope' ></i>        info@ujligetpizzeria.hu</div>     
+            </div>
+            <div class="fejlec2">
+                <div class="fej4">
+                    <button class="facefej-kos"><a href="bejelentkezes.html"><img src="../kepek/bxs-cart.svg" alt="Kosar" title="Kosár"></a></button>
+                </div>
+                <div class="fej4">
+                    <button class="facefej-kos"><a href="https://www.facebook.com/ligetpizza/?locale=hu_HU" target="_blank"><img src="../kepek/bxl-facebook-circle.svg" alt="Facebook" title="Facebook oldalunk"></a></button>
+                </div>
+            </div>
+        </div>
+       <div class="div1">                                           <!-- 1. div cella: margin: left-right = 50-->
+            <div id="rolunk" class="">                              <!--1 fejezet-->
+                <p class="h2">Magunkról</p><a name="nyitva"></a>
+            </div>
+        
+            <div class="column">        
+                <div class="div11">
+                    <img src="" alt="">                            <!--Kép hiányzik-->
+                </div>
+                <div class="div12">
+                    <p>Kedves Vendégeink !
+                        Örömmel értesítünk titeket, hogy pizzériánkat e hónap elejétől megnyitottuk a Liget Bowling Clubban. 
+                        Hamarosan kiszállításra is tudtok tőlünk rendelni, addig is várunk sok szeretettel mindenkit a kiszolgáló ablaknál, vagy helyben  Liget Bowling Clubban 🙂
+                        Cím : 9700 Szombathely Liget utca 1, Liget Bowling Club
+                        További infókért kövessétek Facebook oldalunkat. 😉</p>
+                </div>
+            </div>
+        </div>
+        <div class="nyitva"><a name="etlap"></a>                                   <!--2 fejezet nyitvatartás + háttérkép-->
+            <div><p class="h1">Elérhetőségeink</p></div>  
+            <div class="nyitvatartas">                      <!--középső kocka-->
+                <p class="kozepre">Új Liget Pizzeria</p>
+                <div class="div21">
+                    <blockquote>
+                        <i class='bx bxs-phone'></i>            06(xx) xxx-xxx
+                        <br>
+                        <i class='bx bxs-location-plus' ></i>   9700 Szombathely xxx út xx.
+                        <br>
+                        <i class='bx bxs-envelope' ></i>        info@ujligetpizzeria.hu
+                    </blockquote>
+                </div>
+                <div class="div22">
+                    <button class="facebook"><a href="https://www.facebook.com/ligetpizza/?locale=hu_HU" target="_blank"><img src="../kepek/facebooklogo.png" alt="Facebook" title="Facebook oldalunk"></a></button>
+                </div>
+                <div class="div23">
+                    <p class="kozepre">Nyitvatartás</p>
+                    <table>
+                        <tr>
+                            <td class="nap">Hétfő:</td>
+                            <td><div></div></td>                        <!--1 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Kedd:</td>
+                            <td><div></div></td>                        <!--2 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Szerda:</td>
+                            <td><div></div></td>                        <!--3 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Csütörtök:</td>
+                            <td><div></div></td>                        <!--4 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Péntek:</td>
+                            <td><div></div></td>                        <!--5 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Szombat:</td>
+                            <td><div></div></td>                        <!--6 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                        <tr>
+                            <td class="nap">Vasárnap:</td>
+                            <td><div></div></td>                        <!--7 nap időpontjai-->
+                            <td>:</td>
+                            <td><div></div></td>
+                            <td><div></div></td>                        <!--hozzá tartozó megjegyzés-->
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="etlap" ><a name="foglal"></a>                                    <!--3 fejezet étlap-->
+            <div><p class="h2">Étlap</p></div>
+            <div class="etlaptav">
+                <div class="div33"></div>
+                <div class="div31">
+
+                </div>
+                <div class="div32">
+                    <p class="szoveg">Mediterrán hangulatú éttermünkben 40 főig vállaljuk esküvők, keresztelők, egyéb családi és céges rendezvények, borkóstolók teljes körű lebonyolítását, szervezését.
+                        <br>
+                        2024. január 01-től az étterem területén tilos a dohányzás.</p>
+                        <div>
+                            <p class="kozepre">Kedves Vendégeink! <br> Tekintsék meg megújult étlapunkat.</p>
+                            <div class="div35">
+                                <button class="etlapgomb"><a href="etlap.html" target="_blank">Étlap</a></button>
+                            </div>
+                        </div>
+                </div>
+                <div class="div34"></div>
+            </div>
+        </div>
+
+        <div class="foglal"><a name="rendel"></a>                                                  <!--4 fejezet foglalás-->
+            <div>
+                <div class="h1">
+                    <p>Asztal foglalás</p>
+                </div>
+                <div>
+                    <p class="szoveg2">Családias hangulatú panziónkban 13 szoba (egyágyas, kétágyas, franciaágyas, háromágyas), valamint két apartman (4 fős, 2 hálótérrel) várja pihenni vágyó vendégeinket. Minden szoba önálló fürdőszobával rendelkezik, televízióval, mini hűtőszekrénnyel és hajszárítóval felszerelt. Összes férőhelyünk 34 fő.</p>
+                       <p class="szoveg3">2024. január 1-jétől panziónk egész területén tilos a dohányzás!</p>
+                       <div>
+                                                                            <!--Képek!!!-->
+                       </div>
+                        <p class="szoveg2">Asztalfoglalást az alábbi email címen lehet kérni:</p>
+                        <div><p class="szoveg3">foglalas@ujligetpizzeria.hu</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ertekeles">                                                               <!--5 fejezet Szállítás-->
+            <div>
+                <div class="rendel">
+                    <div>
+                        <p class="h2">Rendelés</p>
+                    </div>
+                    <p class="szoveg3">Rendelését az adott napi menüre még aznap reggel 9 óráig leadhatja itt, vagy az alábbi elérhetőségeken! <br>
+                        A rendelés leadásakor már bankkártyás és Szép Kártyás (OTP, MKB) fizetési mód is választható!</p>
+                    <p class="szoveg2">
+                        Menü kiszállítás: 11:00 és 15:00 óra között!    <br>
+                        Vasárnap nemszállítunk! <br>
+                        A menü változtatás jogát fenntartjuk! <br>
+                        Napi ajánlataink a készlet erejéig érvényesek.</p>
+                    <p class="jelentkezbe">Rendeléshez kérjük jelentkezz be!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="ertekeles">                                                            <!--6 fejezet értékelés-->
+            <div>
+                <p class="h1">Pozitív értékelések rólunk</p>
+            </div>
+            <div>
+                <div>
+                    <div class="ertekeles1">
+                        <div>
+                            <i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i> <p><b>5</b></p>
+                        </div>
+                        <div>
+                            <p class="szoveg4">Ímádom a Hawaii Pizátokat! Szerintem a környéken a legjobb!</p>
+                        </div>
+                    </div>
+                    <div class="ertekeles2">
+                        <img src="" alt="PNG" title="Kedves Vendégeink">                        <!--Kép Boldog emberröl/családról akik esznek 2 div magas-->
+                    </div>
+                </div>
+                <div>
+                    <div class="ertekeles4">
+                        <div>
+                            <i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bx-star' ></i> <p><b>4</b></p>
+                        </div>
+                        <div>
+                            <p class="szoveg3">Elég jó a sörötök! Kár hogy nincsen a "" brandből!</p>
+                        </div>
+                    </div>
+                    <div class="ertekeles4">
+                        <div>
+                            <i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><i class='bx bxs-star' ></i><p><b>5</b></p>
+                        </div>
+                        <div>
+                            <p class="szoveg3">Köszönöm szépen a felejthetettlen születésnapi élményt! Jővőre is itt ünneplem!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ertekeles">  <!--7 fejezet-->
+            <p>
+                <a href="#eleje">Vissza az oldal elejére</a>
+            </p>
+        </div>
+    </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+.subjectmaintenance {
+    width:              500px;
+    height:             300px;
+    border-style:       solid;
+    border-width:       1px;
+}
+
+.subjectsearch {
+    padding:            8px 10px 8px 0px;
+}
+.subjectsearch input {
+    width:              100px;
+    margin-left:        8px;
+    margin-right:       8px;
+}
+
+.subjectmaintenance table {
+    margin:             12px;
+    border-style:       solid;
+    border-width:       1px;
+    width:              476px;
+}
+
+.subjecttableheader {
+    background-color: #afafaf;
+}
+
+.subjectmaintenance td {
+    padding-left:       4px;
+}
+
+.subjectmaintenance .buttons {
+    margin:             12px;
+}
+
+.subjectmaintenance .buttons button {
+    width:              80px;
+}
+
+.subjectmaintenance .checksymbol {
+    position:           relative; 
+    top:                2px;
+}
+
+.subjectmaintenance .refresh {
+    position:           relative; 
+    top:                4px;
+    cursor:             pointer;
+}

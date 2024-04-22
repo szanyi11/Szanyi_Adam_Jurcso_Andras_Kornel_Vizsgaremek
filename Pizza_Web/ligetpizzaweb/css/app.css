@@ -1,0 +1,126 @@
+.header {
+    background-color: #434242;
+    color:            #FFFFFF;
+    font-size:          16px;
+    font-weight:        500;
+    padding-left:       16px;
+    padding-right:      16px;
+    height:             32px;
+}
+
+.menubar {
+    background-color: #434242;
+    color:            #FFFFFF;
+    height:             24px;
+    padding-left:       16px;
+    padding-right:      16px;
+    font-size:          12px;
+}
+
+.space {
+    width:              16px;
+}
+.menupoint {
+    cursor:             pointer;
+}
+
+.menupoint:hover {
+    text-decoration:    underline;
+}
+
+.footer {
+    background-color: #434242;
+    color:            #FFFFFF;
+    font-size:          12px;
+    padding-left:       16px;
+    padding-right:      16px;
+    height:             24px;
+}
+
+.login {
+    width:              400px;
+    height:             240px;
+    border-style:       solid;
+    border-width:       1px;
+}
+
+.label {
+    font-size:          12px;
+    width:              100px;
+}
+
+.loginbutton {
+    width:              150px;
+    margin-top:         8px;
+}
+
+.usermaintenance {
+    width:              500px;
+    height:             300px;
+    border-style:       solid;
+    border-width:       1px;
+}
+
+.windowtitle {
+    background-color: #434242;
+    color:            #FFFFFF;
+    padding:            4px 4px 4px 8px;
+    font-size:          11px;
+}
+
+.windowclosex {
+    position:           relative;
+    top:                2px;
+    cursor:             pointer;
+}
+
+.usersearch {
+    padding:            8px 10px 8px 0px;
+}
+.usersearch input {
+    width:              100px;
+    margin-left:        8px;
+    margin-right:       8px;
+}
+
+.usermaintenance table {
+    margin:             12px;
+    border-style:       solid;
+    border-width:       1px;
+    width:              476px;
+}
+
+.usertableheader {
+    background-color: #afafaf;
+}
+
+.usermaintenance td {
+    padding-left:       4px;
+}
+
+.usermaintenance .buttons {
+    margin:             12px;
+}
+
+.usermaintenance .buttons button {
+    width:              80px;
+}
+
+.usermaintenance .checksymbol {
+    position:           relative; 
+    top:                2px;
+}
+
+.usermaintenance .refresh {
+    position:           relative; 
+    top:                4px;
+    cursor:             pointer;
+}
+
+#username {
+    cursor:             pointer;
+}
+
+#username:hover {
+    text-decoration:    underline;
+}
