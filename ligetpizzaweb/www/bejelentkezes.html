@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/service.js"></script> <!--server j-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- URL: https://boxicons.com/usage-->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/tetel.css">
+    <link rel="stylesheet" href="../css/bejelentkezese.css">
+    <script src="../www/js/app.js"></script>
+    <script src="../www/js/model/user.js"></script>
+    <script src="../www/js/model/tetel.js"></script>
+    <script src="../www/js/screen/login.js"></script>
+    <script src="../www/js/screen/usermaintenance.js"></script>
+    <script src="../www/js/screen/tetelmaintenance.js"></script>
+    <title>Liget Pizza</title>
+</head>
+<body onload="start()">
+
+    <div class="vertical" style="height: 100%">
+
+        <!-- Fejléc -->
+
+        <div class="header horizontal center">
+            <div class="flex">Bejelentkezés</div>
+            <div id="username" title="Kijelentkezés" onclick="logout()"></div>
+        </div>
+
+        <!-- Menürendszer -->
+
+        <div class="menubar horizontal center" style="display: none;">
+            <div class="menupoint" title="Felhasználók karbantartása" onclick="showUserMaintenance()">Fiókom</div>
+            <div class="space"></div>
+            <div class="menupoint" title="Tantárgyak karbantartása" onclick="showTetelMaintenance()">Rendelés</div>
+            <div class="space"></div>
+            <div class="menupoint" title="Tanárok karbantartása">Fó oldal</div>
+            <div class="space"></div>
+            <div class="menupoint" title="Tanulók karbantartása">Étlap</div>
+            <div class="space"></div>
+            <div class="menupoint" title="Jegyek karbantartása">Kosár</div>
+        </div>
+
+        <!-- Fő terület -->
+
+        <div class="flex horizontal vertical center center-justified">
+            
+            <!-- Bejelentkező képernyő -->
+
+            <div class="login horizontal vertical center center-justified">
+
+                <!-- Felhasználói azonosító  -->
+
+                <div class="horizontal center">
+                    <div class="label">Felhasználónév:</div>
+                    <div><input id="uid" type="text" onkeydown="onENTER(event, 'pwd')"></div>
+                </div>
+
+                <!-- Felhasználói jelszó  -->
+
+                <div class="horizontal center">
+                    <div class="label">Jelszó:</div>
+                    <div><input id="pwd" type="password" onkeydown="onENTER(event)"></div>
+                </div>
+
+                <!-- Login gomb  -->
+
+                <div class="horizontal center">
+                    <div class="label"></div>
+                    <div class="loginbutton"><button title="Belépés a rendszerbe" onclick="login()">Belép</button></div>
+                </div>
+            </div>
+
+            <!-- Felhasználó karbantartás -->
+
+            <div class="usermaintenance vertical center-justified" style="display: none;">
+                
+                <!-- Ablak címsor -->
+
+                <div class="windowtitle horizontal center">
+                    <div class="flex">Felhasználó karbantartás</div>
+                    <div class="windowclosex" title="Bezár" onclick="closeUserMaintenance()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="24"><path fill="#FFFFFF" d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Ablak fő része -->
+
+                <div class="vertical flex">
+
+                    <!-- Keresés -->
+
+                    <div class="horizontal usersearch">
+                        <div class="flex"></div>
+                        <div>Keres:</div>
+                        <div><input id="user_search" type="text" oninput="usersearch(event)"></div>
+                        <div class="refresh" title="Frissít" onclick="refreshUsers()"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="24"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg></div>
+                    </div>
+
+                    <!-- Felhasználó lista -->
+
+                    <div class="flex">
+                        <table id="usertable" cellspacing="0" cellpadding="0">
+                            <tr class="usertableheader">
+                                <td>Név</td>
+                                <td>ÁR</td>
+                                <td>DB</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Karbantartó gombok -->
+
+                    <div class="horizontal buttons">
+                        <button id="newpassword" onclick="setNewPassword()">Új jelszó</button>
+                        <div class="flex"></div>
+                        <button id="newuser" onclick="newUser()" style="margin-right: 8px;">Új</button>
+                        <button id="modifyuser" onclick="modifyuser()" style="margin-right: 8px;">Módosít</button>
+                        <button id="deleteuser" onclick="deleteUser()">Töröl</button>
+                        <button id="saveuser" style="display: none; margin-right: 8px;" onclick="saveUser()">Mentés</button>
+                        <button id="canceluser" style="display: none;" onclick="cancelUser()">Mégsem</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tantárgy karbantartás -->
+
+            <div class="tetelmaintenance vertical center-justified" style="display: none;">
+                
+                <!-- Ablak címsor -->
+
+                <div class="windowtitle horizontal center">
+                    <div class="flex">Tantárgy karbantartás</div>
+                    <div class="windowclosex" title="Bezár" onclick="closeTetelMaintenance()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="24"><path fill="#FFFFFF" d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Ablak fő része -->
+
+                <div class="vertical flex">
+
+                    <!-- Keresés -->
+
+                    <div class="horizontal tetelsearch">
+                        <div class="flex"></div>
+                        <div>Keres:</div>
+                        <div><input id="tetel_search" type="text" oninput="tetelsearch(event)"></div>
+                        <div class="refresh" title="Frissít" onclick="refreshTetels()"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="24"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg></div>
+                    </div>
+
+                    <!-- Tantárgy lista -->
+
+                    <div class="flex">
+                        <table id="teteltable" cellspacing="0" cellpadding="0">
+                            <tr class="teteltableheader">
+                                <td>Azonosító</td>
+                                <td>Név</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Karbantartó gombok -->
+
+                    <div class="horizontal buttons">
+                        <div class="flex"></div>
+                        <button id="newtetel" onclick="newTetel()" style="margin-right: 8px;">Új</button>
+                        <button id="modifytetel" onclick="modifyTetel()" style="margin-right: 8px;">Módosít</button>
+                        <button id="deletetetel" onclick="deleteTetel()">Töröl</button>
+                        <button id="savetetel" style="display: none; margin-right: 8px;" onclick="saveTetel()">Mentés</button>
+                        <button id="canceltetel" style="display: none;" onclick="cancelTetel()">Mégsem</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lábléc -->
+
+        <div class="footer horizontal center">
+            <div class="flex"></div>
+            <div>verzio 1.0</div>
+        </div>
+    </div>
+</body>
+</html>

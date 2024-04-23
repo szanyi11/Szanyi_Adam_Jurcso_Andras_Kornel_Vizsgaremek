@@ -1,0 +1,1 @@
+A program node.js és express keretrendszert használ amit telepíteni szükséges a működtetéséhez.

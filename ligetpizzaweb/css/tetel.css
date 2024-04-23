@@ -1,0 +1,49 @@
+.tetelmaintenance {
+    width:              500px;
+    height:             300px;
+    border-style:       solid;
+    border-width:       1px;
+}
+
+.tetelsearch {
+    padding:            8px 10px 8px 0px;
+}
+.tetelsearch input {
+    width:              100px;
+    margin-left:        8px;
+    margin-right:       8px;
+}
+
+.tetelmaintenance table {
+    margin:             12px;
+    border-style:       solid;
+    border-width:       1px;
+    width:              476px;
+}
+
+.teteltableheader {
+    background-color: #afafaf;
+}
+
+.tetelmaintenance td {
+    padding-left:       4px;
+}
+
+.tetelmaintenance .buttons {
+    margin:             12px;
+}
+
+.tetelmaintenance .buttons button {
+    width:              80px;
+}
+
+.tetelmaintenance .checksymbol {
+    position:           relative; 
+    top:                2px;
+}
+
+.tetelmaintenance .refresh {
+    position:           relative; 
+    top:                4px;
+    cursor:             pointer;
+}
