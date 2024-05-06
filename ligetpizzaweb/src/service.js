@@ -1,6 +1,6 @@
 // Szükséges modulok betöltése
 
-const Database = require('.database')
+const Database = require('../src/database')
 const config = require("../felhasznalo.json")
 
 //bejelentkezéshez funkciók

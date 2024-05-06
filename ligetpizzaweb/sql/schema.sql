@@ -1,4 +1,9 @@
-DELIMITER ;;
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Adatbázis: `liget_pizzeria`
@@ -54,11 +59,23 @@ DROP TABLE IF EXISTS `etlap`;
 CREATE TABLE `etlap` (
   `etlap2_ID` int(11) NOT NULL,
   `etlap2_nev` varchar(60) NOT NULL,
-  `etlap2_kep` varchar(60) DEFAULT NULL,
+  `etlap2_kep` varchar(255) DEFAULT NULL,
   `etlap2_ar` int(11) NOT NULL,
   `tipus` varchar(30) NOT NULL,
   `etlap2_leiras` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `etlap`
+--
+
+INSERT INTO `etlap` (`etlap2_ID`, `etlap2_nev`, `etlap2_kep`, `etlap2_ar`, `tipus`, `etlap2_leiras`) VALUES
+(31, '22. Liget Speciál Pizza', '7071522. Liget Speciál.jpeg', 3150, 'Pizzák', 'paradicsomszósz,sajt,sonka,szalámi,friss tejföl sütés után'),
+(32, '24. Csípős-Magyaros Pizza', '4289424. Csípős magyaros.jpeg', 3150, 'Pizzák', 'paradicsomszósz,sajt,csipős szalámi, bacon, friss paradicsomkarikák sütés után'),
+(33, '28.Frienze Pizza', '3077128.Frienze Pizza.jpg', 3250, 'Pizzák', 'fokhagymás-tejfölös alap, sajt , érelt sonka, szárított paradicsom, rukkola'),
+(34, 'Cézár Saláta', '19262Cézár Saláta.jpg', 2750, 'Saláták', 'friss saláta, paradicsom, csirkemell csíkok, pirított zsemlekocka, parmezán'),
+(35, 'Szezámmagos bundázott csirkecsíkok', '91363Szezámmagos bundázott csirkecsíkok.jpg', 3250, 'Tálak', 'Hasábburgonyával, és vegyes salátával, válaszható öntettel'),
+(36, 'Coca Cola', '22040cocacola.png', 800, 'Ital', 'Coca Cola');
 
 -- --------------------------------------------------------
 
@@ -89,6 +106,22 @@ CREATE TABLE `feltet` (
   `feltet_ar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `feltet`
+--
+
+INSERT INTO `feltet` (`feltet_ID`, `feltet_nev`, `feltet_ar`) VALUES
+(13, 'Fokhagyma', 250),
+(14, 'Hagyma', 250),
+(15, 'Póréhagyma', 250),
+(16, 'Gomba', 250),
+(17, 'Kukorica', 250),
+(18, 'Ananász', 250),
+(19, 'Trapista sajt', 450),
+(20, 'Tonhal', 500),
+(21, 'Érelt sonka', 500),
+(22, 'Hasábburgonya', 500);
+
 -- --------------------------------------------------------
 
 --
@@ -111,7 +144,6 @@ CREATE TABLE `kosar` (
 
 DROP TABLE IF EXISTS `nyilvantartas`;
 CREATE TABLE `nyilvantartas` (
-  `ID` int(11) NOT NULL,
   `napok` varchar(30) DEFAULT NULL,
   `mettol_ora` varchar(2) DEFAULT NULL,
   `mettol_perc` varchar(2) DEFAULT NULL,
@@ -124,14 +156,14 @@ CREATE TABLE `nyilvantartas` (
 -- A tábla adatainak kiíratása `nyilvantartas`
 --
 
-INSERT INTO `nyilvantartas` (`ID`, `napok`, `mettol_ora`, `mettol_perc`, `meddig_ora`, `meddig_perc`, `esemeny`) VALUES
-(1, 'Hétfő', '9', '00', '11', '00', ''),
-(2, 'Kedd', '11', '00', '00', '00', ''),
-(3, 'Szerda', '11', '00', '00', '00', ''),
-(4, 'Csütörtök', '11', '00', '00', '00', ''),
-(5, 'Péntek', '11', '00', '02', '00', ''),
-(6, 'Szombat', '11', '00', '02', '00', ''),
-(7, 'Vasárnap', '11', '00', '00', '00', '');
+INSERT INTO `nyilvantartas` (`napok`, `mettol_ora`, `mettol_perc`, `meddig_ora`, `meddig_perc`, `esemeny`) VALUES
+('Hétfő', '9', '00', '11', '00', ''),
+('Kedd', '11', '00', '00', '00', ''),
+('Szerda', '11', '00', '00', '00', ''),
+('Csütörtök', '11', '00', '00', '00', ''),
+('Péntek', '11', '00', '02', '00', ''),
+('Szombat', '11', '00', '02', '00', ''),
+('Vasárnap', '11', '00', '00', '00', '');
 
 -- --------------------------------------------------------
 
@@ -155,7 +187,7 @@ CREATE TABLE `pizzeria` (
 --
 
 INSERT INTO `pizzeria` (`telefonszam`, `email`, `informaciok`, `akciok`, `rolunk`, `telephely`, `aszf`) VALUES
-('+3630789299', 'label@gmail.com', '[value-3]', 'dsasdasdfca', 'edsgfvdygdsgds', '9700.Szombathely', '');
+('+36307177060', 'liget@liget.com', 'Nincs új információ', 'Nincs jelenlegi akció', 'Kedves Vendégeink ! Örömmel értesítünk titeket, hogy pizzériánkat e hónap elejétől megnyitottuk a Liget Bowling Clubban. Hamarosan kiszállításra is tudtok tőlünk rendelni, addig is várunk sok szeretettel mindenkit a kiszolgáló ablaknál, vagy helyben Liget Bowling Clubban  Cím : 9700 Szombathely Liget utca 1, Liget Bowling Club További infókért kövessétek Facebook oldalunkat. ', '9700.Szombathely Liget utca.1', 'Feltöltés Alatt!');
 
 -- --------------------------------------------------------
 
@@ -188,7 +220,10 @@ CREATE TABLE `tipus` (
 --
 
 INSERT INTO `tipus` (`tipus_nev`) VALUES
-('Pizza');
+('Ital'),
+('Pizzák'),
+('Saláták'),
+('Tálak');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -235,12 +270,6 @@ ALTER TABLE `kosar`
   ADD KEY `felhaszn` (`felhasznalo_ID`);
 
 --
--- A tábla indexei `nyilvantartas`
---
-ALTER TABLE `nyilvantartas`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- A tábla indexei `tetel`
 --
 ALTER TABLE `tetel`
@@ -275,7 +304,7 @@ ALTER TABLE `cim`
 -- AUTO_INCREMENT a táblához `etlap`
 --
 ALTER TABLE `etlap`
-  MODIFY `etlap2_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `etlap2_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`
@@ -287,7 +316,7 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `feltet`
 --
 ALTER TABLE `feltet`
-  MODIFY `feltet_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `feltet_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT a táblához `kosar`
@@ -296,16 +325,10 @@ ALTER TABLE `kosar`
   MODIFY `kosar_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT a táblához `nyilvantartas`
---
-ALTER TABLE `nyilvantartas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT a táblához `tetel`
 --
 ALTER TABLE `tetel`
-  MODIFY `tetel_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tetel_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -315,7 +338,7 @@ ALTER TABLE `tetel`
 -- Megkötések a táblához `etlap`
 --
 ALTER TABLE `etlap`
-  ADD CONSTRAINT `tipus` FOREIGN KEY (`tipus`) REFERENCES `tipus` (`tipus_nev`);
+  ADD CONSTRAINT `tipus` FOREIGN KEY (`tipus`) REFERENCES `tipus` (`tipus_nev`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Megkötések a táblához `felhasznalok`
@@ -338,4 +361,7 @@ ALTER TABLE `tetel`
   ADD CONSTRAINT `felhaszn2` FOREIGN KEY (`felhasznalo_ID`) REFERENCES `felhasznalok` (`felhasznalo_ID`),
   ADD CONSTRAINT `feltet` FOREIGN KEY (`feltet_ID`) REFERENCES `feltet` (`feltet_ID`);
 COMMIT;
-;;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

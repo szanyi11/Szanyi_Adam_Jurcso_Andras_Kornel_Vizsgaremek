@@ -1,15 +1,17 @@
 {
         "name": "weboldal",
         "description": "Liget Pizza weboldal",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "author": {
                 "name": "Jurcsó András Kornél",
-                "email": "kornel.jurcso@gmail.com",
+                "email": "kornel.jurcsonincs_ilyen@gmail.com",
                 "url": "https://ligetpizza.hu"
         },
         "private": true,
         "dependencies": {
+                "cors": "^2.8.5",
                 "express": "^4.19.2",
-                "mysql2": "^3.9.6"
+                "mysql2": "^3.9.7",
+                "nodemon": "^3.1.0"
         }
 }

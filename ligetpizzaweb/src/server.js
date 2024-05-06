@@ -1,9 +1,13 @@
 // Szükséges modulok betöltése
 
-const express = require('express');
-const Service = require('./service')
+const express = require('express')
+const Service = require('../src/service')
+const { request } = require('http')
+const path = require('path');
 
-const { request } = require('http'); //ez meg mi??
+// Adatbázis összekapcsolása a weboldalal
+
+
 
 // Indító modull futásának ellenörzése (nem szükséges)
 
@@ -11,13 +15,96 @@ console.log('Rendszer inditás')
 
 // Express alkalmazás létrehozása
 
-const app = express();
+const app = express()
 
-app.use(express.static('./www'))
+// Statikus fájlok szolgáltatása a www mappából
+app.use(express.static(path.join(__dirname, '../www')));
 
+// CSS fájlok MIME típusának beállítása
+app.use((req, res, next) => {
+    if (req.url.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css');
+    }
+    next();
+});
+
+
+
+
+app.use(express.static('./kepek'))
+app.use(express.static('./sql'))
+
+app.use((req, res, next) => {
+    if (req.url.endsWith('.js')) {
+      res.setHeader('Content-Type', 'text/js');
+    }
+    next();
+  });
 // Frontend-Backend kommunikáció biztosítása JSON formában
 
 app.use(express.json())
+
+// Adatbázis lekérdezések
+
+/*
+const connection = mysql2.createConnection(felhasznalo.db);
+
+  connection.connect((err) => {
+    if (err) {
+      console.error('500-as hiba kód: ', err);
+      return;
+    }
+    console.log('MySQL adatbázishoz megtörtént a kapcsolat')
+  });
+
+  app.get('/rolunk', (req, res) => {
+    connection.query('SELECT rolunk FROM pizzeria', (err, results) => {
+        if (err) {
+            console.error('Adatbázis lekérdezése közben hiba lépet fel ', err);
+            res.status(500).json({ error: 'Error az 1. lekérdezés közben' });
+            return;
+        }
+        res.json(results);
+    });
+})
+app.get('/email', (req, res) => {
+    connection.query('SELECT email FROM pizzeria', (err, results) => {
+        if (err) {
+            console.error('Adatbázis lekérdezése közben hiba lépet fel ', err);
+            res.status(500).json({ error: 'Error az 2. lekérdezés közben' });
+            return;
+        }
+        res.json(results);
+    });
+})
+app.get('/telefon', (req, res) => {
+    connection.query('SELECT telefon FROM pizzeria', (err, results) => {
+        if (err) {
+            console.error('Adatbázis lekérdezése közben hiba lépet fel ', err);
+            res.status(500).json({ error: 'Error az 3. lekérdezés közben' });
+            return;
+        }
+        res.json(results);
+    });
+})
+app.get('/telephely', (req, res) => {
+    connection.query('SELECT telephely FROM pizzeria', (err, results) => {
+        if (err) {
+            console.error('Adatbázis lekérdezése közben hiba lépet fel ', err);
+            res.status(500).json({ error: 'Error az 4. lekérdezés közben' });
+            return;
+        }
+        res.json(results);
+    });
+})
+
+*/    
+
+
+
+
+
+
 
 app.post('/api', async (request, response) => {
     if (request.body.action && request.body.action === 'login') {
@@ -270,11 +357,14 @@ app.post('/api', async (request, response) => {
     } 
 })
 
+// lezárom az adatbázishoz a hozzáférést
 
+/* connection.end(); */
 
+// Portvaló kapcsolódás kiválasztása
 
-const PORT = 5501;
+const PORT =  8000;
 
-console.log(`WEB -es kiszolgáló indítása a ${PORT} -porton`)
+console.log(`WEB -es kiszolgáló indítása a ${PORT} -porton`);
 
-app.listen(PORT)
+app.listen(PORT);
